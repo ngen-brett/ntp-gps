@@ -7,10 +7,12 @@ LABEL maintainer="Fitz <https://twitter.com/fitz3253>"
 LABEL documentation="https://github.com/GitHubberFitz/ntp-gps"
 
 ### Installs
+RUN apk upgrade --no-cache
 RUN apk add --no-cache gpsd gpsd-clients ntpsec
 
 ### Ports
 EXPOSE 123/udp
+EXPOSE 2947/tcp
 
 ### NTP startup script
 COPY newpoint.sh /root/newpoint.sh
